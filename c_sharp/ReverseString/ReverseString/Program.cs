@@ -11,6 +11,10 @@ var test2 = Esrever("Reverse");
 Console.WriteLine(test2);
 
 
+var test3 = Reverse2("test333");
+Console.WriteLine($"Reverse2 : {test3}");
+
+
 static string Reverse(string toBeReversed) 
 {
     
@@ -35,6 +39,12 @@ static string? Esrever(string toBeReverted)
         charArray[cA_i++] = c;
 
     }
-
     return new string(charArray);
+}
+
+static string Reverse2(string toBeReversed)
+{
+    var cArray = toBeReversed.Reverse().ToArray();
+
+    return new string(cArray);
 }
