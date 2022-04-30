@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseString", "ReverseString\ReverseString.csproj", "{953E9C1B-1D86-4AC9-90C5-0A31038232E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array_ReverseString", "Array_ReverseString\Array_ReverseString.csproj", "{8BC00A71-CAA5-40AA-BC17-038A2A0BB2B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{953E9C1B-1D86-4AC9-90C5-0A31038232E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{953E9C1B-1D86-4AC9-90C5-0A31038232E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{953E9C1B-1D86-4AC9-90C5-0A31038232E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{953E9C1B-1D86-4AC9-90C5-0A31038232E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BC00A71-CAA5-40AA-BC17-038A2A0BB2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC00A71-CAA5-40AA-BC17-038A2A0BB2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC00A71-CAA5-40AA-BC17-038A2A0BB2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC00A71-CAA5-40AA-BC17-038A2A0BB2B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {899FE737-32C8-489A-9386-778B73DD74AF}
+		SolutionGuid = {DA916B06-AE2B-4B54-A723-25387219F03E}
 	EndGlobalSection
 EndGlobal
