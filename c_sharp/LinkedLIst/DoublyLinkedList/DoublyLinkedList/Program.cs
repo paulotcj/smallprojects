@@ -2,11 +2,9 @@
 Action<string> print = Console.WriteLine;
 print("Hello, World!");
 
-var myLinkedList = new MyLinkedList(2);
+var myLinkedList = new MyDoublyLinkedList(2);
 myLinkedList.PrintList();
 print("################################");
-
-
 myLinkedList.Append(4);
 myLinkedList.Append(6);
 myLinkedList.Append(8);
@@ -23,7 +21,6 @@ print($"Traverse to index 0 : {myLinkedList.TraverseToIndex(0)?.nodeValue}");
 print($"Traverse to index 2 : {myLinkedList.TraverseToIndex(2)?.nodeValue}");
 print($"Traverse to index 5 : {myLinkedList.TraverseToIndex(5)?.nodeValue}");
 print($"Traverse to index 99 : {myLinkedList.TraverseToIndex(99)?.nodeValue}");
-
 
 print("################################");
 print("Insert test - start");
@@ -42,6 +39,7 @@ print(" -----");
 myLinkedList.Insert(2, 55);
 myLinkedList.PrintList();
 print("Insert test - end");
+
 
 print("################################");
 print("Remove from index -1");
@@ -64,15 +62,17 @@ print("Remove from index 2");
 myLinkedList.RemoveIndex(2);
 myLinkedList.PrintList();
 print(" -----");
+
 //-------------------------------------------------------------
-public class MyLinkedList
+
+public class MyDoublyLinkedList
 {
     private int _count = 0;
     private Node head = null;
     private Node tail = null;
 
-    
-    public MyLinkedList(int value)
+
+    public MyDoublyLinkedList(int value)
     {
         var current = NewNode(value);
 
@@ -82,10 +82,11 @@ public class MyLinkedList
         _count++;
     }
 
-    private Node NewNode(int value) 
+    private Node NewNode(int value)
     {
         var current = new Node();
         current.next = null;
+        current.prev = null;
         current.nodeValue = value;
 
         return current;
@@ -98,6 +99,7 @@ public class MyLinkedList
         var current = NewNode(value);
         if (head == null) { head = current; }
         tail.next = current;
+        current.prev = tail;
         tail = current;
         _count++;
     }
@@ -109,6 +111,7 @@ public class MyLinkedList
         var current = NewNode(value);
         if (tail == null) { tail = current; }
         current.next = head;
+        head.prev = current;
         head = current;
         _count++;
     }
@@ -119,19 +122,23 @@ public class MyLinkedList
 
 
         //is it at the head?
-        if (index == 0) { Prepend(value); }
+        if (index == 0) { Prepend(value); } //done
 
         //is it at the tail?
-        else if (index >= _count) { Append(value); }
+        else if (index >= _count) { Append(value); } //done
 
         //then it's in the middle
-        else 
+        else
         {
             var newNode = NewNode(value);
             var prev = TraverseToIndex(index - 1);
+            var next = prev?.next;
 
-            newNode.next = prev.next;
+            newNode.next = prev?.next;
+            newNode.prev = next?.prev;
+
             prev.next = newNode;
+            next.prev = newNode; ;
             _count++;
         }
 
@@ -150,20 +157,26 @@ public class MyLinkedList
         //is it at the head?
         else if (index == 0)
         {
-            head = head.next;
+            var next = head.next;
+            head = next;
+            head.prev = null;
         }
         //are we removing from tail?
         else if (index >= _count - 1)
         {
-            var previous = TraverseToIndex(index - 1);
+            var previous = tail.prev;
             previous.next = null;
             tail = previous;
         }
         //then we are removing from the middle
-        else 
+        else
         {
-            var previous = TraverseToIndex(index - 1);
-            previous.next = previous.next?.next;
+            var toDelete = TraverseToIndex(index);
+            var prev = toDelete.prev;
+            var next = toDelete.next;
+
+            next.prev = prev;
+            prev.next = next;
 
         }
 
@@ -178,7 +191,7 @@ public class MyLinkedList
 
     public Node? TraverseToIndex(int index)
     {
-        if (index < 0 ) { index = 0; }
+        if (index < 0) { index = 0; }
         else if (index >= _count) { index = _count - 1; };
 
         var current = head; // this is index 0
@@ -196,7 +209,7 @@ public class MyLinkedList
         var current = head;
         while (current != null)
         {
-            Console.WriteLine($"Value : {current.nodeValue}");
+            Console.WriteLine($"Value :    {current.nodeValue}              - prev:  {current?.prev?.nodeValue} - next : {current?.next?.nodeValue}");
             current = current.next;
         }
     }
@@ -207,5 +220,6 @@ public class MyLinkedList
 public class Node
 {
     public Node? next;
+    public Node? prev;
     public int nodeValue;
 }
