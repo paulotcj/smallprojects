@@ -63,6 +63,12 @@ myLinkedList.RemoveIndex(2);
 myLinkedList.PrintList();
 print(" -----");
 
+
+print("################################");
+
+myLinkedList.Reverse();
+myLinkedList.PrintList();
+
 //-------------------------------------------------------------
 
 public class MyDoublyLinkedList
@@ -179,11 +185,36 @@ public class MyDoublyLinkedList
             prev.next = next;
 
         }
-
         _count--;
+    }
 
+    public void Reverse()
+    {
+        //first thing is to flip pointers
+        var current = head;
+        while (current != null)
+        {
+            var temp_prev = current.prev;
+            var temp_next = current.next;
 
+            current.prev = temp_next;
+            current.next = temp_prev; //flipped
 
+            //where should we go from here? we started from the head, and in
+            // order to move next we should take the next pointer, so...
+
+            current = temp_next;
+        }
+
+        //-----
+        //lets flip head and tail
+        current = head;
+
+        head = tail;
+        tail = current;
+        //-----
+
+        return;
     }
 
 
