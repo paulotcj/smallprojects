@@ -36,7 +36,7 @@ print($"Looking for value 22 : {myTree.LookUp(22)}");
 print($"Looking for value 33 : {myTree.LookUp(33)}");
 
 print("##############################");
-var removeValue = 9;
+var removeValue = 20;
 print($"Remove {removeValue}");
 myTree.Remove(removeValue);
 myTree.PrintTree();
