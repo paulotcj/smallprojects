@@ -1,10 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-//int[] arr = new int[] { 10, 7, 8, 9, 1, 5 };
-//arr = QuickSort.Sort(arr);
-//Console.WriteLine($"Sorted array: ");
-//QuickSort.Print(arr);
+int[] arr = new int[] { 10, 7, 8, 9, 1, 5 };
+arr = QuickSort.Sort(arr);
+Console.WriteLine($"Sorted array: ");
+QuickSort.Print(arr);
 Console.WriteLine($"###########################");
 var list = new List<int>() { 9,7,5,1,3,2,4,0,8,6 };
 list = QuickSort2.Sort(list);
