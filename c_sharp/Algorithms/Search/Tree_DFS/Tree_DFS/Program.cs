@@ -71,7 +71,7 @@ namespace Tree_DFS
 
         //---
 
-        //given hor the binary tree is organized how we define what is pre-order, in-order and post-order?
+        //given how the binary tree is organized how we define what is pre-order, in-order and post-order?
         // consider the functions below, we are using recursive calls to add elements to a list
         // so in the 'In Order' case we go:
         //    left until the end;
