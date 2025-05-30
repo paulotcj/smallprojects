@@ -11,6 +11,9 @@
 *.sln.docstates
 **/.DS_Store
 
+*.sh
+*.gitignore.py
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
